@@ -2,10 +2,13 @@
 into
 ====
 
-A small javascript utility function for Node that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
+[![Build Status](https://travis-ci.org/agj/into.svg?branch=master)](https://travis-ci.org/agj/into)
 
-*into* is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [__Katy__][2] library as the T method, but this is a more basic and focused approach with no added magic.
+A small javascript utility function for [Node][node] that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
 
+*into* is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [_Katy_][2] library as the T method, but this is a more basic and focused approach with no added magic.
+
+[node]: https://nodejs.org/en/
 [1]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
 [2]: https://github.com/raganwald/Katy
 
@@ -33,11 +36,27 @@ Math.pow([1, 2, 3].map(double).reduce(add), 2); // 144
 
 ### `into.install([target])`
 
-You can pass a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`.
+You can pass a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`. Be aware that if you install it on global objects, it will affect global state! Consider the risk if you decide to do it.
 
 ### `into.into(fn [, ...args])`
 
 This is the actual function that is installed using `install`, offered to allow for customized implementations.
+
+* `fn` is a function that takes one or more arguments.
+* `args` are optional extra arguments to pass to `fn`.
+
+`fn` is called with `this` as the first argument, followed by any extra arguments `args` if supplied. `this` is the object _left to the dot of a method call,_ i.e. `obj` in `obj.into(fn)`.
+
+```js
+require('into').install(); // By default installs on `Object.prototype`, affecting all objects.
+({ 'one': 1, 'two': 2 }).into(Object.keys); // ['one', 'two']
+```
+
+Is equivalent to:
+
+```js
+Object.keys({ 'one': 1, 'two': 2 }); // ['one', 'two']
+```
 
 
 ## License
