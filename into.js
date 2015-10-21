@@ -1,3 +1,4 @@
+'use strict';
 
 var fp = Function.prototype;
 var toArray = fp.bind.call(fp.call, [].slice);
