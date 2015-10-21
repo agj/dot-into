@@ -2,9 +2,9 @@
 into
 ====
 
-A small javascript utility function for Node that, by installing into a prototype, allows you to maintain left-to-right order in function calls, not only with methods but with any arbitrary function. Compare `third(second(first(obj)))` to `first(obj).into(second).into(third)`.
+A small javascript utility function for Node that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
 
-into is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1]. He already implemented it in his [Katy][2] library as the T method, but this is a more basic and focused approach with no added magic.
+*into* is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [__Katy__][2] library as the T method, but this is a more basic and focused approach with no added magic.
 
 [1]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
 [2]: https://github.com/raganwald/Katy
@@ -31,11 +31,11 @@ Math.pow([1, 2, 3].map(double).reduce(add), 2); // 144
 
 ## API
 
-### `install([target])`
+### `into.install([target])`
 
-You can pass a prototype to install it to, or it will by default use Object.prototype, allowing to use the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`.
+You can pass a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`.
 
-### `into(fn [, ...args])`
+### `into.into(fn [, ...args])`
 
 This is the actual function that is installed using `install`, offered to allow for customized implementations.
 
