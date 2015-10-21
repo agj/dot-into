@@ -1,6 +1,6 @@
 
 var fp = Function.prototype;
-var toArray = fp.bind(fp.call, [].slice);
+var toArray = fp.bind.call(fp.call, [].slice);
 
 function into(fn) {
 	if (arguments.length <= 1) {
@@ -16,6 +16,11 @@ module.exports = {
 	into: into,
 	install: function (target) {
 		target = target || Object.prototype;
-		target.into = into;
+		Object.defineProperty(target, 'into', {
+			value: into,
+			enumerable: false,
+			configurable: true,
+			writable: true
+		});
 	}
 };
