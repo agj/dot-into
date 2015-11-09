@@ -8,7 +8,7 @@ A small javascript utility function for [Node][node] that, by installing into a 
 
 **dot-into** is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [_Katy_][2] library as the T method, but this is a more basic and focused approach with no added magic.
 
-[node]: https://nodejs.org/en/
+[node]: https://nodejs.org/
 [1]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
 [2]: https://github.com/raganwald/Katy
 
@@ -29,6 +29,15 @@ Note the last line. Normally, you'd have to break the left-to-right flow and sur
 
 ```js
 Math.pow([1, 2, 3].map(double).reduce(add), 2); // 144
+```
+
+
+## Installation
+
+Using [Node][node], type into the command line:
+
+```sh
+npm install dot-into
 ```
 
 
