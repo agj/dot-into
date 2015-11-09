@@ -8,7 +8,7 @@
   },
   "license": "ISC",
 
-  "main": "into.js",
+  "main": "dotinto.js",
   "devDependencies": {
     "mocha": "~2.3.3"
   },

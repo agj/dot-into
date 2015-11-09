@@ -1,5 +1,5 @@
 
-var into = require('../into');
+var into = require('../dotinto');
 var assert = require('assert');
 
 describe('Installation and use in prototype.', function () {
