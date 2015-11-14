@@ -10,10 +10,11 @@
   "main": "dotinto.js",
   "devDependencies": {
     "tape": "^4.2.2",
-    "tape-catch": "^1.0.4"
+    "tape-catch": "^1.0.4",
+    "tape-run": "^2.1.0"
   },
   "scripts": {
-    "test": "node test/"
+    "test": "node test/ && browserify test/ | tape-run"
   },
   "repository": {
     "type": "git",
