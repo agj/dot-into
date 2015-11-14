@@ -1,35 +1,36 @@
+'use strict';
 
-var into = require('../dotinto');
-var assert = require('assert');
+var into = require('../');
+var test = require('tape-catch');
 
-describe('Installation and use in prototype.', function () {
+function Num(value) {
+	this.value = value;
+}
+Num.prototype.valueOf = function () { return this.value };
 
-	function Num(value) {
-		this.value = value;
+function increment(a) { return new Num(a + 1) };
+function add(a, b, c, d) { return new Num(a + b + c + d) };
+
+test('Installation.', function (assert) {
+	assert.doesNotThrow(function () {
+		into.install(Num.prototype);
+	});
+	assert.end();
+});
+
+test('Installed method is non-enumerable.', function (assert) {
+	for (var prop in Num.prototype) {
+		if (prop === 'into') throw 'Found ´into´ while enumerating.';
 	}
-	Num.prototype.valueOf = function () { return this.value };
+	assert.end();
+});
 
-	function increment(a) { return new Num(a + 1) };
-	function add(a, b, c, d) { return new Num(a + b + c + d) };
+test('Use without parameters.', function (assert) {
+	assert.equal(new Num(1).into(increment).valueOf(), 2);
+	assert.end();
+});
 
-	it('Installation.', function () {
-		assert.doesNotThrow(function () {
-			into.install(Num.prototype);
-		});
-	});
-
-	it('Installed method is non-enumerable.', function () {
-		for (var prop in Num.prototype) {
-			if (prop === 'into') throw 'Found ´into´ while enumerating.';
-		}
-	});
-
-	it('Use without parameters.', function () {
-		assert( new Num(1).into(increment) == 2 );
-	});
-
-	it('Use with parameters.', function () {
-		assert( new Num(1).into(add, 1, 2, 3) == 7 );
-	});
-
+test('Use with parameters.', function (assert) {
+	assert.equal(new Num(1).into(add, 1, 2, 3).valueOf(), 7);
+	assert.end();
 });
