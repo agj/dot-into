@@ -4,11 +4,12 @@ dot-into
 
 [![Build Status](https://travis-ci.org/agj/dot-into.svg?branch=master)](https://travis-ci.org/agj/dot-into)
 
-A small javascript utility function for [Node][node] that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
+A small javascript utility function for [Node][node] and the browser (using [Browserify][browserify]) that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
 
 **dot-into** is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [_Katy_][2] library as the T method, but this is a more basic and focused approach with no added magic.
 
 [node]: https://nodejs.org/
+[browserify]: http://browserify.org/
 [1]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
 [2]: https://github.com/raganwald/Katy
 
