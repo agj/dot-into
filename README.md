@@ -3,6 +3,7 @@ dot-into
 ========
 
 [![Build Status](https://travis-ci.org/agj/dot-into.svg?branch=master)](https://travis-ci.org/agj/dot-into)
+[![Dependency Status](https://david-dm.org/agj/dot-into.svg)](https://david-dm.org/agj/dot-into)
 
 A small javascript utility function for [Node][node] and the browser (using [Browserify][browserify]) that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
 
@@ -44,9 +45,15 @@ npm install dot-into
 
 ## API
 
+Given:
+
+```js
+var dotInto = require('dot-into');
+```
+
 ### `dotInto.install([target])`
 
-You can pass a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`. Be aware that if you install it on global objects, it will affect global state! Consider the risk if you decide to do it.
+You can pass `target` to specify a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`. Be aware that if you install it on global objects, it will affect global state! Consider the risk if you decide to do it.
 
 ### `dotInto.into(fn [, ...args])`
 
