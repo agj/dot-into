@@ -1,6 +1,6 @@
 {
   "name": "dot-into",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use any function as if it was a method.",
   "author": {
     "name": "agj",
