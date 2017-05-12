@@ -15,7 +15,7 @@
     "tape-run": "^3.0.0"
   },
   "scripts": {
-    "test": "node test/ && browserify test/ | tape-run"
+    "test": "browserify test/ && browserify test/ | tape-run"
   },
   "repository": {
     "type": "git",
