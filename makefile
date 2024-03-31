@@ -3,6 +3,7 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	nix develop -c "$$SHELL"
 
 build: install ## Build into `dist` folder.
+	rm -rf ./dist
 	npx tsup ./src/dotinto.ts --format cjs,esm --dts
 
 test: install ## Run tests.
