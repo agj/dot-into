@@ -2,83 +2,69 @@
 dot-into
 ========
 
-[![Build Status](https://travis-ci.org/agj/dot-into.svg?branch=master)](https://travis-ci.org/agj/dot-into)
-[![Dependency Status](https://david-dm.org/agj/dot-into.svg)](https://david-dm.org/agj/dot-into)
+A small JavaScript utility that allows you to convert this type of code
 
-A small javascript utility function for [Node][node] and the browser (using [Browserify][browserify]) that, by installing into a prototype, allows you to maintain left-to-right order in function calls, using any arbitrary function almost as if it were a method of the object. Compare `third(second(first(a)), b)` to `first(a).into(second).into(third, b)`.
+```js
+third(second(first(a)), b)
+```
 
-**dot-into** is a javascript implementation of [Reg Brathwaite's Ruby "into" idea][1] (read his blog post for illuminating insight). He already implemented it in his [_Katy_][2] library as the T method, but this is a more basic and focused approach with no added magic.
+into this
 
-[node]: https://nodejs.org/
-[browserify]: http://browserify.org/
-[1]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
-[2]: https://github.com/raganwald/Katy
+```js
+first(a).into(second).into(third, b)
+```
+
+You might be familiar with this style of programming from shells (Bash and friends) which use the `|` (pipe) operator, or from programming languages that implement piping, commonly through the `|>` operator. It allows you to avoid nesting function calls, maintaining left-to-right order.
+
+This package modifies the `Object` prototype with an `into` method. This ensures that anything that extends `Object` will have `into` available. The method is made non-enumerable, so it should not interfere with ordinary interaction with objects, such as while iterating through properties.
+
+To get the most out of **dot-into**, I recommend [_Ramda_](ramda) or some other library that allows you to more easily do [currying][https://stackoverflow.com/a/36321] and other types of partial application of functions.
+
+**dot-into** was originally prompted by [Reg Brathwaite's 2008 blog post][2008blog]. He also implemented it in his [_Katy_][katy] library as the `T` method, but mine was a more basic and focused approach with no added magic.
+
+[ramda]: https://ramdajs.com/
+[2008blog]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
+[katy]: https://github.com/raganwald/Katy
 
 
 ## Example
 
 ```js
-require('dot-into').install(Number.prototype);
+import 'dot-into';
 
-function double(a) { return a * 2 }
-function add(a, b) { return a + b }
+const double = (a) => a * 2;
+const add = (a, b) => a + b;
 
-// With list [1, 2, 3], double each, add all values, and then get its second power.
-[1, 2, 3].map(double).reduce(add).into(Math.pow, 2); // 144
+[1, 2, 3]
+  .map(double)        // Double each value.
+  .reduce(add)        // Get the sum by adding all values together.
+  .into(Math.pow, 2); // Get its power of two.
 ```
 
-Note the last line. Normally, you'd have to break the left-to-right flow and surround the result of the `map` and `reduce` operations into the `Math.pow` function, like so:
+It reads vertically very easily. Without `.into` it becomes much harder to reason about, as you have to jump between lines to follow the order of execution:
 
 ```js
-Math.pow([1, 2, 3].map(double).reduce(add), 2); // 144
+Math.pow(
+  [1, 2, 3]
+    .map(double)
+    .reduce(add),
+  2
+);
 ```
 
 
 ## Installation
 
-Using [Node][node], type into the command line:
+With npm:
 
 ```sh
-npm install dot-into
-```
-
-
-## API
-
-Given:
-
-```js
-var dotInto = require('dot-into');
-```
-
-### `dotInto.install([target])`
-
-You can pass `target` to specify a prototype to install it to, or it will by default use `Object.prototype`, allowing use of the `into` method in any object. It is defined as non-enumerable, so the property won't show up when iterating with `for (var prop in obj)`. Be aware that if you install it on global objects, it will affect global state! Consider the risk if you decide to do it.
-
-### `dotInto.into(fn [, ...args])`
-
-This is the actual function that is installed using `install`, offered to allow for customized implementations.
-
-* `fn` is a function that takes one or more arguments.
-* `args` are optional extra arguments to pass to `fn`.
-
-`fn` is called with `this` as the first argument, followed by any extra arguments `args` if supplied. `this` is the object _left to the dot of a method call,_ i.e. `obj` in `obj.into(fn)`.
-
-```js
-require('dot-into').install(); // By default installs on `Object.prototype`, affecting all objects.
-({ 'one': 1, 'two': 2 }).into(Object.keys); // ['one', 'two']
-```
-
-Is equivalent to:
-
-```js
-Object.keys({ 'one': 1, 'two': 2 }); // ['one', 'two']
+npm install --save dot-into
 ```
 
 
 ## License
 
-Copyright (c) 2017, agj
+Copyright (c) 2017-2024, agj
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
