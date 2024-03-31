@@ -3,8 +3,11 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	nix develop -c "$$SHELL"
 
 build: install ## Build into `dist` folder.
+# Clean-up.
 	rm -rf ./dist
+# Generate files.
 	npx tsup ./src/dotinto.ts --format cjs,esm --dts
+# Fix for tsup issue: https://github.com/egoist/tsup/issues/843
 	printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
 test: install ## Run tests.
