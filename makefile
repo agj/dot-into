@@ -2,8 +2,8 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	@printf "You may type 'exit' to return to the regular shell.\n"
 	nix develop -c "$$SHELL"
 
-build: ## Build into `dist` folder.
-	tsc
+build: install ## Build into `dist` folder.
+	npx tsup ./src/dotinto.ts --format cjs,esm --dts
 
 test: install ## Run tests.
 	bun test

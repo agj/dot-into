@@ -17,7 +17,6 @@
           buildInputs = with pkgs; [
             bun
             nodePackages.pnpm
-            typescript
           ];
         };
       }
