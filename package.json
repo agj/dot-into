@@ -19,7 +19,6 @@
   ],
   "license": "ISC",
   "main": "./dist/dotinto.js",
-  "module": "./dist/dotinto.mjs",
   "name": "dot-into",
   "repository": {
     "type": "git",
