@@ -1,10 +1,10 @@
 export type Dotinto = <
-  Param0,
-  Result,
-  RestParams extends unknown[],
-  Fn extends (p0: Param0, ...rest: RestParams) => Result
+  This,
+  Ps extends any[],
+  R,
+  Fn extends (p0: This, ...rest: Ps) => R
 >(
-  this: Param0,
+  this: This,
   fn: Fn,
-  ...args: RestParams
-) => Result;
+  ...args: Ps
+) => ReturnType<Fn>;
