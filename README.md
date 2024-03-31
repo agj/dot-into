@@ -1,6 +1,6 @@
 # dot-into
 
-A small JavaScript utility that allows you to convert this type of code
+A small **JavaScript** and **TypeScript** utility that allows you to convert this type of code
 
 ```js
 third(second(first(a)), b);
@@ -14,7 +14,7 @@ first(a).into(second).into(third, b);
 
 You might be familiar with this style of programming from terminal shells (Bash and friends) which use the `|` (pipe) operator, or from programming languages that implement piping, commonly through the `|>` operator. It allows you to avoid nesting function calls, maintaining left-to-right order.
 
-⚠️ **dot-into** modifies the `Object` prototype with an `into` method. This ensures that anything that extends `Object` will have `into` available. The method is made non-enumerable, so it should not interfere with ordinary interaction with objects, such as while iterating through properties.
+⚠️ **dot-into** modifies the `Object` prototype with an `into` method. This ensures that most anything will have this method available. It's a bit old-school or hacky if you will, but it's correctly typed in TypeScript!
 
 This package was originally prompted by [Reg Brathwaite's 2008 blog post][2008blog]. He also implemented it in his [_Katy_][katy] library as the `T` method, but mine was a more basic and focused approach with no added magic.
 
