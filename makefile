@@ -2,6 +2,9 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	@printf "You may type 'exit' to return to the regular shell.\n"
 	nix develop -c "$$SHELL"
 
+build: ## Build into `dist` folder.
+	tsc
+
 test: install ## Run tests.
 	bun test
 
