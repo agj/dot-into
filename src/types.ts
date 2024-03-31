@@ -1,10 +1,9 @@
 export type Dotinto = <
   This,
-  Ps extends any[],
-  R,
-  Fn extends (p0: This, ...rest: Ps) => R
+  Rest extends any[],
+  Fn extends (p0: This, ...rest: Rest) => any
 >(
   this: This,
   fn: Fn,
-  ...args: Ps
+  ...rest: Rest
 ) => ReturnType<Fn>;

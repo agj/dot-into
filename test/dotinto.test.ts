@@ -13,7 +13,7 @@ test("`into` method is non-enumerable in `Object` prototype.", function () {
   expect(findIntoProp).not.toThrow();
 });
 
-test("Use without parameters.", function () {
+test("Use without extra arguments.", function () {
   const input = [1, 2, 3] as const;
 
   const result = input.into((arr) => arr[1]);
@@ -21,10 +21,10 @@ test("Use without parameters.", function () {
   expect(result).toBe(2);
 });
 
-test("Use with parameters.", function () {
+test("Use with extra arguments.", function () {
   const input = [1, 2, 3] as const;
 
-  const result = input.into((arr, num) => arr[1] + num, 5);
+  const result = input.into((arr, n, m) => arr[1] + n + m, 5, 6);
 
-  expect(result).toBe(7);
+  expect(result).toBe(13);
 });
