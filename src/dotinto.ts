@@ -7,15 +7,11 @@ function into(
   return fn(this, ...args);
 }
 
-export default {
-  into: into,
-  install: function (target: Function) {
-    target = target || Object.prototype;
-    Object.defineProperty(target, "into", {
-      value: into,
-      enumerable: false,
-      configurable: true,
-      writable: true,
-    });
-  },
-};
+// Install globally.
+
+Object.defineProperty(Object.prototype, "into", {
+  value: into,
+  enumerable: false,
+  configurable: false,
+  writable: false,
+});
