@@ -10,11 +10,12 @@ build: install ## Build into `dist` folder.
 # Fix for tsup issue: https://github.com/egoist/tsup/issues/843
 	printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
-test: install ## Run tests.
+test: build ## Run tests.
 	bun test
 
-test-watch: install ## Run tests and wait for file changes.
-	bun test --watch
+test-watch: ## Run tests and wait for file changes.
+	find . -path './src/*.ts' \
+		| entr make test
 
 pack: build ## Pack to check whether published code is correct.
 	pnpm pack

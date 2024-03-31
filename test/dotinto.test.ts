@@ -1,4 +1,4 @@
-import "../src/dotinto";
+import "..";
 import { test, expect } from "bun:test";
 
 test("`into` method is non-enumerable in `Object` prototype.", function () {
