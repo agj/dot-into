@@ -2,11 +2,14 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	@printf "You may type 'exit' to return to the regular shell.\n"
 	nix develop -c "$$SHELL"
 
-test: ## Run tests.
+test: install ## Run tests.
 	bun test
 
-test-watch: ## Run tests and wait for file changes.
+test-watch: install ## Run tests and wait for file changes.
 	bun test --watch
+
+install:
+	pnpm install
 
 
 

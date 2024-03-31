@@ -5,10 +5,7 @@
   },
   "description": "String your functions pipeline-style!",
   "devDependencies": {
-    "browserify": "^17.0.0",
-    "tape": "^5.7.5",
-    "tape-catch": "^1.0.6",
-    "tape-run": "^11.0.0"
+    "@types/bun": "^1.0.12"
   },
   "license": "ISC",
   "main": "dotinto.js",
