@@ -1,9 +1,9 @@
-function into<
-  Param0,
-  Result,
-  RestParams extends unknown[],
-  Fn extends (p0: Param0, ...rest: RestParams) => Result
->(this: Param0, fn: Fn, ...args: RestParams): Result {
+import { Dotinto } from "./types";
+
+function into(
+  this: ThisParameterType<Dotinto>,
+  ...[fn, ...args]: Parameters<Dotinto>
+): ReturnType<Dotinto> {
   return fn(this, ...args);
 }
 
