@@ -2,11 +2,11 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 	@echo "You may type 'exit' to return to the regular shell.\n"
 	nix develop -c "$$SHELL"
 
-test: install ## Run tests.
-	node test/ && npx browserify test/ | npx tape-run
+test: ## Run tests.
+	bun test
 
-install:
-	pnpm install
+test-watch: ## Run tests and wait for file changes.
+	bun test --watch
 
 
 
