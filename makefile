@@ -5,6 +5,7 @@ init: ## Load a shell with all dependencies (if you don't use direnv).
 build: install ## Build into `dist` folder.
 	rm -rf ./dist
 	npx tsup ./src/dotinto.ts --format cjs,esm --dts
+	printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
 test: install ## Run tests.
 	bun test
