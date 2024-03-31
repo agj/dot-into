@@ -1,4 +1,4 @@
-# dot-into
+# dot-into ↪️
 
 A small **JavaScript** and **TypeScript** utility that allows you to convert this type of code
 
