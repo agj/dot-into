@@ -11,6 +11,9 @@ test: install ## Run tests.
 test-watch: install ## Run tests and wait for file changes.
 	bun test --watch
 
+pack: build ## Pack to check whether published code is correct.
+	pnpm pack
+
 install:
 	pnpm install
 
