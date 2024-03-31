@@ -1,4 +1,4 @@
-import into from "..";
+import into from "../dotinto";
 import { test, expect } from "bun:test";
 
 class Num {
