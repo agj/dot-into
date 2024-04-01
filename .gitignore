@@ -1,3 +1,6 @@
+dot-into-*.tgz
 
 node_modules/
 **/npm-debug.log
+.direnv/
+.vscode/

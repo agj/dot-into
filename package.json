@@ -1,24 +1,29 @@
 {
-  "name": "dot-into",
-  "version": "1.0.2",
-  "description": "Use any function as if it was a method.",
   "author": {
     "name": "agj",
     "url": "http://www.agj.cl/"
   },
-  "license": "ISC",
-  "main": "dotinto.js",
+  "bugs": {
+    "url": "https://github.com/agj/dot-into/issues"
+  },
+  "description": "String your functions pipeline-style!",
   "devDependencies": {
-    "browserify": "^14.3.0",
-    "tape": "^4.6.3",
-    "tape-catch": "^1.0.6",
-    "tape-run": "^3.0.0"
+    "@swc/core": "^1.4.11",
+    "@types/bun": "^1.0.12",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
   },
-  "scripts": {
-    "test": "node test/ && browserify test/ | tape-run"
-  },
+  "homepage": "https://github.com/agj/dot-into",
+  "keywords": [
+    "utility"
+  ],
+  "license": "ISC",
+  "main": "./dist/dotinto.js",
+  "name": "dot-into",
   "repository": {
     "type": "git",
     "url": "https://github.com/agj/dot-into.git"
-  }
+  },
+  "types": "./dist/dotinto.d.ts",
+  "version": "2.0.0"
 }
