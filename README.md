@@ -28,7 +28,7 @@ Some of these examples use [Ramda][ramda], which is a library that makes it easy
 
 ```js
 import "dot-into";
-import R from "ramda"; // See: https://ramdajs.com/
+import * as R from "ramda"; // See: https://ramdajs.com/
 
 // Get sum of amounts in objects, then get its power of 2.
 
@@ -50,7 +50,7 @@ const namesDict = ["Claudia", "Pedro", "Amalia"]
 // Take the third string in alphabetical order.
 
 const [third] = ["foo", "bar", "baz", "hoge", "bar", "foo"]
-  .into(R.sort)
+  .into(R.sort(R.ascend))
   .into(R.uniq)
   .into(R.drop(2));
 
@@ -59,7 +59,7 @@ const [third] = ["foo", "bar", "baz", "hoge", "bar", "foo"]
 const latinLettersInCorpus = "corpus"
   .toLowerCase()
   .split("")
-  .filter((c) => /[a-z]/.test(c))
+  .filter((char) => /[a-z]/.test(char))
   .into(R.uniq);
 ```
 
