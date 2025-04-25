@@ -32,15 +32,15 @@ test("Use with extra arguments.", () => {
 
 // Type tests.
 
-const uniq = <T,>(t: T): T => ts;
+const identity = <T>(t: T): T => t;
 
-const a = uniq(["a"].map((a) => `${a}b`));
-const b = ["a"].map((a) => `${a}b`).into(uniq);
-const c = ["a"].map((a) => `${a}b`).into(<T,>(t: T): T => t);
+const a = identity("a");
+const b = "a".into(identity);
+const c = "a".into(<T>(t: T): T => t);
 
-type test1 = Expect<Equal<typeof a, string[]>>;
-type test2 = Expect<Equal<typeof b, string[]>>;
-type test3 = Expect<Equal<typeof c, string[]>>;
+type test1 = Expect<Equal<typeof a, "a">>;
+type test2 = Expect<Equal<typeof b, "a">>;
+type test3 = Expect<Equal<typeof c, "a">>;
 
 type test4 = Expect<Equal<typeof a, typeof b>>;
 type test5 = Expect<Equal<typeof b, typeof c>>;
