@@ -14,10 +14,10 @@
         pkgs = import nixpkgs {system = system;};
       in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            bun
-            entr
-            nodePackages.pnpm
+          buildInputs = [
+            pkgs.bun
+            pkgs.entr
+            pkgs.nodejs-slim_23
           ];
         };
       }

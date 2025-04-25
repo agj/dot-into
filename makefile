@@ -6,7 +6,7 @@ build: install ## Build into `dist` folder.
 # Clean-up.
 	rm -rf ./dist
 # Generate files.
-	pnpm exec tsup ./src/dotinto.ts --format cjs --dts
+	bunx tsup ./src/dotinto.ts --format cjs --dts
 # Fix for tsup issue: https://github.com/egoist/tsup/issues/843
 	printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
@@ -18,10 +18,10 @@ test-watch: ## Run tests and wait for file changes.
 		| entr make test
 
 pack: build ## Pack to check whether published code is correct.
-	pnpm pack
+	bun pm pack
 
 install:
-	pnpm install
+	bun install
 
 
 
