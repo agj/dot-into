@@ -18,6 +18,7 @@ test-watch: build check-types ## Run tests and wait for file changes.
 
 check-types: ## Check TypeScript types.
 	tsc --noEmit
+	tsc --noEmit test/*.ts
 
 format: ## Formats files.
 	biome format --write src/*.ts test/*.ts
