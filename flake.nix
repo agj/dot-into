@@ -16,7 +16,6 @@
         devShell = pkgs.mkShell {
           buildInputs = [
             pkgs.bun
-            pkgs.entr
             pkgs.nodejs-slim_23
           ];
         };

@@ -13,9 +13,8 @@ build: install ## Build into `dist` folder.
 test: build ## Run tests.
 	bun test
 
-test-watch: ## Run tests and wait for file changes.
-	find . -path './src/*.ts' \
-		| entr make test
+test-watch: build ## Run tests and wait for file changes.
+	bun test --watch
 
 pack: build ## Pack to check whether published code is correct.
 	bun pm pack
