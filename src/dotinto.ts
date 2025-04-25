@@ -1,4 +1,4 @@
-import { Dotinto } from "./types";
+import type { Dotinto } from "./types";
 
 function into(
   this: ThisParameterType<Dotinto>,
