@@ -34,14 +34,19 @@ test("Use with extra arguments.", () => {
 
 const identity = <T>(t: T): T => t;
 
-const a = identity("a");
-const b = "a".into(identity);
-const c = "a".into(<T>(t: T): T => t);
+const value: string = "a";
 
-type test1 = Expect<Equal<typeof a, "a">>;
-type test2 = Expect<Equal<typeof b, "a">>;
-type test3 = Expect<Equal<typeof c, "a">>;
+const a = identity(value);
+const b = value.into(identity);
+const c = value.into((t) => t);
+const d = value.into(<T>(t: T): T => t);
 
-type test4 = Expect<Equal<typeof a, typeof b>>;
-type test5 = Expect<Equal<typeof b, typeof c>>;
-type test6 = Expect<Equal<typeof c, typeof a>>;
+type test1a = Expect<Equal<typeof a, string>>;
+type test1b = Expect<Equal<typeof b, string>>;
+type test1c = Expect<Equal<typeof c, string>>;
+type test1d = Expect<Equal<typeof d, string>>;
+
+type test2a = Expect<Equal<typeof a, typeof b>>;
+type test2b = Expect<Equal<typeof b, typeof c>>;
+type test2c = Expect<Equal<typeof c, typeof d>>;
+type test2d = Expect<Equal<typeof d, typeof a>>;
