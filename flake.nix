@@ -18,6 +18,7 @@
             pkgs.biome
             pkgs.bun
             pkgs.nodejs-slim_23
+            pkgs.typescript
           ];
         };
       }

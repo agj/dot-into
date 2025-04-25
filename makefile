@@ -10,11 +10,14 @@ build: install ## Build into `dist` folder.
 # Fix for tsup issue: https://github.com/egoist/tsup/issues/843
 	printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
-test: build ## Run tests.
+test: build check-types ## Run tests.
 	bun test
 
-test-watch: build ## Run tests and wait for file changes.
+test-watch: build check-types ## Run tests and wait for file changes.
 	bun test --watch
+
+check-types: ## Check TypeScript types.
+	tsc --noEmit
 
 format: ## Formats files.
 	biome format --write src/*.ts test/*.ts
