@@ -11,6 +11,7 @@
     "@swc/core": "^1.11.22",
     "@types/bun": "^1.2.10",
     "tsup": "^8.4.0",
+    "type-testing": "^0.2.0",
     "typescript": "^5.8.3"
   },
   "homepage": "https://github.com/agj/dot-into",

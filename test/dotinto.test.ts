@@ -1,5 +1,6 @@
 import "../src/dotinto";
 import { test, expect } from "bun:test";
+import type { Equal, Expect, NotEqual } from "type-testing";
 
 test("`into` method is non-enumerable in `Object` prototype.", () => {
   const findIntoProp = () => {
@@ -28,3 +29,19 @@ test("Use with extra arguments.", () => {
 
   expect(result).toBe(13);
 });
+
+// Type tests.
+
+const uniq = <T,>(t: T): T => ts;
+
+const a = uniq(["a"].map((a) => `${a}b`));
+const b = ["a"].map((a) => `${a}b`).into(uniq);
+const c = ["a"].map((a) => `${a}b`).into(<T,>(t: T): T => t);
+
+type test1 = Expect<Equal<typeof a, string[]>>;
+type test2 = Expect<Equal<typeof b, string[]>>;
+type test3 = Expect<Equal<typeof c, string[]>>;
+
+type test4 = Expect<Equal<typeof a, typeof b>>;
+type test5 = Expect<Equal<typeof b, typeof c>>;
+type test6 = Expect<Equal<typeof c, typeof a>>;
