@@ -16,6 +16,9 @@ test: build ## Run tests.
 test-watch: build ## Run tests and wait for file changes.
 	bun test --watch
 
+format: ## Formats files.
+	biome format --write src/*.ts test/*.ts
+
 pack: build ## Pack to check whether published code is correct.
 	bun pm pack
 

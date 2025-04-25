@@ -15,6 +15,7 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = [
+            pkgs.biome
             pkgs.bun
             pkgs.nodejs-slim_23
           ];
