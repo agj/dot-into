@@ -19,6 +19,7 @@
             pkgs.bun
             pkgs.nodejs-slim_23
             pkgs.typescript
+            pkgs.typescript-language-server
           ];
         };
       }
