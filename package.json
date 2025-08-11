@@ -8,11 +8,11 @@
   },
   "description": "String your functions pipeline-style!",
   "devDependencies": {
-    "@swc/core": "^1.11.22",
-    "@types/bun": "^1.2.10",
-    "tsup": "^8.4.0",
+    "@swc/core": "^1.13.3",
+    "@types/bun": "^1.2.20",
+    "tsup": "^8.5.0",
     "type-testing": "^0.2.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "homepage": "https://github.com/agj/dot-into",
   "keywords": [

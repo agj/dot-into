@@ -18,7 +18,6 @@
             pkgs.biome
             pkgs.bun
             pkgs.just
-            pkgs.nodejs-slim_23
             pkgs.typescript
             pkgs.typescript-language-server
           ];
