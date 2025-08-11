@@ -12,6 +12,10 @@ build: clean install
     # Generate files.
     bunx tsup ./src/dotinto.ts --format cjs --dts
 
+# Check for errors.
+lint:
+    biome lint
+
 # Run tests.
 test: build check-types
     bun test
