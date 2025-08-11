@@ -11,8 +11,6 @@ init:
 build: clean install
     # Generate files.
     bunx tsup ./src/dotinto.ts --format cjs --dts
-    # Fix for tsup issue: https://github.com/egoist/tsup/issues/843
-    printf "\nexport {};\n" >> ./dist/dotinto.d.ts
 
 # Run tests.
 test: build check-types
