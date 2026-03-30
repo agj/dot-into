@@ -1,7 +1,8 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./test/**/*.ts"
   ],
   "compilerOptions": {
     // File Layout
@@ -12,7 +13,9 @@
     // See also https://aka.ms/tsconfig/module
     "module": "es6",
     "target": "es6",
-    "types": [],
+    "types": [
+      "bun"
+    ],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
