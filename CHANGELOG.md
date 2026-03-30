@@ -16,7 +16,9 @@ Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - The argument and return type of functions passed to `.into()` was not properly
-  inferred if said function uses generic types. This has been fixed.
+  inferred if said function uses generic types. This has been largely fixed;
+  however, when the function has multiple signature definitions, the inference
+  still seems to get messed up.
 
 ## [2.0.0] (2024-03-31)
 
