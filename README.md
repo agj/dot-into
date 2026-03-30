@@ -73,6 +73,11 @@ npm install --save dot-into
 
 Remember to `import "dot-into"` from the main file of your project!
 
+## No AI slop policy
+
+This project does not use LLMs or any form of generative AI for the authoring of
+its code or any of its related content.
+
 ## License
 
 Copyright (c) 2017-2024, agj
