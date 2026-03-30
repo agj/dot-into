@@ -8,21 +8,20 @@
   },
   "description": "String your functions pipeline-style!",
   "devDependencies": {
-    "@swc/core": "^1.15.21",
     "@types/bun": "^1.3.11",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.21.7",
     "type-testing": "^0.2.0",
     "typescript": "^6.0.2"
   },
   "homepage": "https://github.com/agj/dot-into",
   "keywords": ["utility"],
   "license": "ISC",
-  "main": "./dist/dotinto.js",
+  "main": "./dist/dotinto.mjs",
   "name": "dot-into",
   "repository": {
     "type": "git",
     "url": "https://github.com/agj/dot-into.git"
   },
-  "types": "./dist/dotinto.d.ts",
+  "types": "./dist/dotinto.d.mts",
   "version": "2.0.0"
 }
