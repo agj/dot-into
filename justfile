@@ -9,7 +9,7 @@ init:
 
 # Build into `dist` folder.
 build: clean install
-    bunx tsdown ./src/dotinto.ts --format esm
+    bunx tsdown ./src/dotinto.ts --format esm --format cjs
 
 # Check for errors.
 lint:

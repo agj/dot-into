@@ -13,10 +13,16 @@
     "type-testing": "^0.2.0",
     "typescript": "^6.0.2"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/dotinto.mjs",
+      "require": "./dist/dotinto.cjs",
+      "types": "./dist/dotinto.d.mts"
+    }
+  },
   "homepage": "https://github.com/agj/dot-into",
   "keywords": ["utility"],
   "license": "ISC",
-  "main": "./dist/dotinto.mjs",
   "name": "dot-into",
   "repository": {
     "type": "git",
