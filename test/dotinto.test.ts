@@ -1,5 +1,5 @@
 import "../src/dotinto";
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import type { Equal, Expect, NotEqual } from "type-testing";
 
 test("`into` method is non-enumerable in `Object` prototype.", () => {
