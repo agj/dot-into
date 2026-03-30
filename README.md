@@ -87,7 +87,8 @@ Remember to `import "dot-into"` from the main file of your project!
 ## No AI slop policy
 
 This project does not use LLMs or any form of generative AI for the authoring of
-its code or any of its related content.
+its code or any of its related content, and will not accept such contributions,
+be they in whole or in part made using such technologies.
 
 ## License
 
