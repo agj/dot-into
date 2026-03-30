@@ -3,6 +3,21 @@
 Details on all dot-into releases. The format is roughly based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Unreleased
+
+### Added
+
+- “No AI slop” policy added to readme.
+
+### Changed
+
+- Package now provides both ESM and CJS formats.
+
+### Fixed
+
+- The argument and return type of functions passed to `.into()` was not properly
+  inferred if said function uses generic types. This has been fixed.
+
 ## [2.0.0] (2024-03-31)
 
 [2.0.0]: https://github.com/agj/dot-into/tree/v2.0.0
