@@ -1,9 +1,10 @@
-import type { Dotinto } from "./types";
+type Fn<This, Args extends unknown[], Ret> = (p0: This, ...rest: Args) => Ret;
 
-function into(
-  this: ThisParameterType<Dotinto>,
-  ...[fn, ...args]: Parameters<Dotinto>
-): ReturnType<Dotinto> {
+function into<This, Args extends unknown[], Ret>(
+  this: This,
+  fn: Fn<This, Args, Ret>,
+  ...args: Args
+): Ret {
   return fn(this, ...args);
 }
 
@@ -21,7 +22,7 @@ declare global {
      *   // Into this:
      *   first(a).into(second).into(third, b);
      */
-    into: Dotinto;
+    into: typeof into;
   }
 }
 
