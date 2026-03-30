@@ -18,7 +18,6 @@
             pkgs.biome
             pkgs.bun
             pkgs.just
-            pkgs.typescript
             pkgs.typescript-language-server
           ];
         };

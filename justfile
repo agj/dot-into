@@ -25,9 +25,9 @@ test-watch: build check-types
     bun test --watch
 
 # Check TypeScript types.
-check-types:
-    tsc --noEmit
-    tsc --noEmit test/**.ts
+check-types: install
+    bunx tsc --noEmit
+    bunx tsc --noEmit test/**.ts
 
 # Formats files.
 format:
