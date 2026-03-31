@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/agj/dot-into/issues"
   },
-  "description": "String your functions pipeline-style!",
+  "description": "Next best thing to a pipeline operator in JS and TS. ↪️",
   "devDependencies": {
     "@types/bun": "^1.3.11",
     "tsdown": "^0.21.7",
@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/agj/dot-into",
   "keywords": [
-    "utility"
+    "utility",
+    "pipeline",
+    "pipe"
   ],
   "license": "ISC",
   "main": "./dist/dotinto.cjs",
