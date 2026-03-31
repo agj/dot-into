@@ -33,7 +33,7 @@ check-types: install
 
 # Formats files.
 format:
-    biome format --write src/**.ts test/**.ts
+    biome format --write
 
 # Pack to check whether published code is correct.
 pack: build
