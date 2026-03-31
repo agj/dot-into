@@ -10,5 +10,3 @@ Object.defineProperty(Object.prototype, "into", {
 });
 //#endregion
 export {};
-
-//# sourceMappingURL=dotinto.mjs.map

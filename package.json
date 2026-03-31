@@ -15,23 +15,23 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/dotinto.d.mts",
-        "default": "./dist/dotinto.mjs"
-      },
-      "require": {
-        "types": "./dist/dotinto.d.cts",
-        "default": "./dist/dotinto.cjs"
-      }
-    }
+      "import": "./dist/dotinto.mjs",
+      "require": "./dist/dotinto.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "homepage": "https://github.com/agj/dot-into",
-  "keywords": ["utility"],
+  "keywords": [
+    "utility"
+  ],
   "license": "ISC",
   "name": "dot-into",
   "repository": {
     "type": "git",
     "url": "https://github.com/agj/dot-into.git"
   },
-  "version": "2.0.0"
+  "version": "2.0.0",
+  "main": "./dist/dotinto.cjs",
+  "module": "./dist/dotinto.mjs",
+  "types": "./dist/dotinto.d.cts"
 }

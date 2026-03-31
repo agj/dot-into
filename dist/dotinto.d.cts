@@ -16,4 +16,3 @@ declare global {
     into: typeof into;
   }
 }
-//# sourceMappingURL=dotinto.d.cts.map
