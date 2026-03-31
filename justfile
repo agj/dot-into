@@ -10,8 +10,8 @@ init:
 # Build into `dist` folder.
 build: clean install
     bunx tsdown --format esm,cjs
+    # Fixes types don't load:
     echo -e "\nexport {}" >> ./dist/dotinto.d.mts
-    # echo -e "\nexport {}" >> ./dist/dotinto.d.cts
     just format
 
 # Check for errors.
