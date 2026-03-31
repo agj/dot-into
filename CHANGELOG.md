@@ -9,18 +9,18 @@ Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- “No AI slop” policy added to readme.
+- Type tests.
 
 ### Changed
 
-- Package now provides both ESM and CJS formats.
+- Package now provides both ESM and CJS module formats.
 
 ### Fixed
 
-- The argument and return type of functions passed to `.into()` was not properly
-  inferred if said function uses generic types. This has been largely fixed;
-  however, when the function has multiple signature definitions, the inference
-  still seems to get messed up.
+- TypeScript would incorrectly infer the argument and return type of a function
+  passed to `.into()` if said function uses generic types. This has been largely
+  fixed; however, when the function has multiple signature definitions, the
+  inference still seems to get messed up.
 
 ## [2.0.0] (2024-03-31)
 
