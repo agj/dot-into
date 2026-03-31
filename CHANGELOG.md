@@ -3,7 +3,9 @@
 Details on all dot-into releases. The format is roughly based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Unreleased
+## [2.1.0] (2026-03-31)
+
+[2.1.0]: https://github.com/agj/dot-into/tree/v2.1.0
 
 ### Added
 
