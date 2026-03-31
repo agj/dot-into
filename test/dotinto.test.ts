@@ -1,6 +1,6 @@
 import "../src/dotinto";
 import { expect, test } from "bun:test";
-import type { Equal, Expect, NotEqual } from "type-testing";
+import type { Equal, Expect } from "type-testing";
 
 test("`into` method is non-enumerable in `Object` prototype.", () => {
   const findIntoProp = () => {
@@ -32,21 +32,36 @@ test("Use with extra arguments.", () => {
 
 // Type tests.
 
-const identity = <T>(t: T): T => t;
-
 const value: string = "a";
 
-const a = identity(value);
-const b = value.into(identity);
-const c = value.into((t) => t);
-const d = value.into(<T>(t: T): T => t);
+const identity = <T>(t: T): T => t;
 
-type test1a = Expect<Equal<typeof a, string>>;
-type test1b = Expect<Equal<typeof b, string>>;
-type test1c = Expect<Equal<typeof c, string>>;
-type test1d = Expect<Equal<typeof d, string>>;
+function multiIdentity(t: number): number;
+function multiIdentity(t: string): string;
+function multiIdentity(t: boolean): boolean;
+function multiIdentity(t: unknown) {
+  return t;
+}
 
-type test2a = Expect<Equal<typeof a, typeof b>>;
-type test2b = Expect<Equal<typeof b, typeof c>>;
-type test2c = Expect<Equal<typeof c, typeof d>>;
-type test2d = Expect<Equal<typeof d, typeof a>>;
+const identityReturnValue = identity(value);
+type TestIdentity = Expect<Equal<typeof identityReturnValue, string>>;
+
+const intoIdentityReturnValue = value.into(identity);
+type TestIntoIdentity = Expect<Equal<typeof intoIdentityReturnValue, string>>;
+
+const intoUntypedAnonymousReturnValue = value.into((t) => t);
+type TestIntoUntypedAnonymous = Expect<
+  Equal<typeof intoUntypedAnonymousReturnValue, string>
+>;
+
+const intoGenericAnonymousReturnValue = value.into(<T>(t: T): T => t);
+type TestIntoGenericAnonymous = Expect<
+  Equal<typeof intoGenericAnonymousReturnValue, string>
+>;
+
+// @ts-expect-error There is a known issue with multiple-signature functions.
+const intoMultiIdentityReturnValue = value.into(multiIdentity);
+type TestIntoMultiIdentity = Expect<
+  // @ts-expect-error There is a known issue with multiple-signature functions.
+  Equal<typeof intoMultiIdentityReturnValue, string>
+>;
