@@ -1,22 +1,23 @@
 # dot-into ↪️
 
 A small **JavaScript** and **TypeScript** utility that allows you to convert
-this type of code
+nested code like this
 
 ```js
 third(second(first(a)), b);
 ```
 
-into this
+into code that flows left-to-right or top-to-bottom, like this
 
 ```js
 first(a).into(second).into(third, b);
 ```
 
 You might be familiar with this style of programming from terminal shells (Bash
-and friends) which use the `|` (pipe) operator, or from programming languages
-that implement function piping, commonly through the `|>` operator. It allows
-you to avoid nesting function calls, maintaining left-to-right order.
+and friends) which use the `|` (pipe) operator, or from many (mostly functional)
+programming languages that implement function piping, commonly through the
+`|>` operator. It allows you to avoid nesting function calls, maintaining
+left-to-right order.
 
 ⚠️ **DO NOT use in library code!** dot-into modifies the `Object` prototype
 with an `into` method, which is part of the global state! This ensures that
