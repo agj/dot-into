@@ -27,23 +27,10 @@ test-watch: build check-types
 check-types: install
     yarn exec tsc --noEmit
 
-# Formats files.
+# Format files.
 [group("development")]
 format:
     prettier --write '**.{ts,js,json,md}'
-
-# RELEASE
-
-# Pack to check whether published code is correct.
-[group("release")]
-pack: build
-    yarn pack
-
-# Publish to the registry using tag `next`.
-[group("release")]
-publish:
-    @gum confirm "Are you sure you want to publish?"
-    yarn npm publish --tag next
 
 # PRIVATE
 
