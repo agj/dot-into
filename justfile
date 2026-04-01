@@ -9,38 +9,34 @@ init:
 
 # Build into `dist` folder.
 build: clean install
-    bunx tsdown --format esm,cjs
+    yarn exec tsdown --format esm,cjs
     # Fixes types don't load:
     echo -e "\nexport {}" >> ./dist/dotinto.d.mts
     just format
 
-# Check for errors.
-lint:
-    biome lint
-
 # Run tests.
 test: build check-types
-    bun test
+    yarn exec vitest
 
 # Run tests and wait for file changes.
 test-watch: build check-types
-    bun test --watch
+    yarn exec vitest --watch
 
 # Check TypeScript types.
 check-types: install
-    bunx tsc --noEmit
+    yarn exec tsc --noEmit
 
 # Formats files.
 format:
-    biome format --write
+    prettier --write '**.{ts,js,json,md}'
 
 # Pack to check whether published code is correct.
 pack: build
-    bun pm pack
+    yarn pack
 
 [private]
 install:
-    bun install
+    yarn install
 
 [private]
 clean:

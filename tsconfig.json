@@ -10,7 +10,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "es6",
     "target": "es6",
-    "types": ["bun"],
+    "types": [],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

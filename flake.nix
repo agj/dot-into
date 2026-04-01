@@ -15,10 +15,11 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = [
-            pkgs.biome
-            pkgs.bun
             pkgs.just
+            pkgs.nodejs-slim_24
+            pkgs.prettier
             pkgs.typescript-language-server
+            pkgs.yarn-berry
           ];
         };
       }

@@ -37,16 +37,16 @@ Simplified for the base use-case, and made it TypeScript-ready.
 - Importing `dot-into` now instantly causes the side-effect of installing the
   `into` method on `Object.prototype`. In sum, this:
 
-    ```js
-    import dotInto from "dot-into";
-    dotInto.install();
-    ```
+  ```js
+  import dotInto from "dot-into";
+  dotInto.install();
+  ```
 
   Becomes this:
 
-    ```js
-    import "dot-into";
-    ```
+  ```js
+  import "dot-into";
+  ```
 
 ### Removed
 

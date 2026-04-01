@@ -1,7 +1,8 @@
-dot-into-*.tgz
+package.tgz
 
 node_modules/
 **/npm-debug.log
+.yarn/
 .direnv/
 .vscode/
 .helix/
