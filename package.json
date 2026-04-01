@@ -35,5 +35,5 @@
     "url": "https://github.com/agj/dot-into.git"
   },
   "types": "./dist/dotinto.d.cts",
-  "version": "2.1.0"
+  "version": "3.0.0"
 }

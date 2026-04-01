@@ -3,9 +3,9 @@
 Details on all dot-into releases. The format is roughly based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [2.1.0] (2026-03-31)
+## [3.0.0] (2026-04-01)
 
-[2.1.0]: https://github.com/agj/dot-into/tree/v2.1.0
+[3.0.0]: https://github.com/agj/dot-into/tree/v3.0.0
 
 ### Added
 
@@ -18,6 +18,10 @@ Changelog](https://keepachangelog.com/en/1.1.0/).
   passed to `.into()` if said function uses generic types. This has been largely
   fixed; however, when the function has multiple signature definitions, the
   inference still seems to get messed up.
+
+### Removed
+
+- Now targeting ES2015 syntax, so no more support for ES5.
 
 ## [2.0.0] (2024-03-31)
 
