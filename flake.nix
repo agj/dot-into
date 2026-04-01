@@ -15,6 +15,7 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = [
+            pkgs.gum
             pkgs.just
             pkgs.nodejs-slim_24
             pkgs.prettier
