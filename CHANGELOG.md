@@ -9,11 +9,8 @@ Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- Type tests.
-
-### Changed
-
 - Package now provides both ESM and CJS module formats.
+- Type tests.
 
 ### Fixed
 
