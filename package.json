@@ -6,24 +6,34 @@
   "bugs": {
     "url": "https://github.com/agj/dot-into/issues"
   },
-  "description": "String your functions pipeline-style!",
+  "description": "Next best thing to a pipeline operator in JS and TS. ↪️",
   "devDependencies": {
-    "@swc/core": "^1.4.11",
-    "@types/bun": "^1.0.12",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.3"
+    "tsdown": "^0.21.7",
+    "type-testing": "^0.2.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/dotinto.mjs",
+      "require": "./dist/dotinto.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "homepage": "https://github.com/agj/dot-into",
   "keywords": [
-    "utility"
+    "utility",
+    "pipeline",
+    "pipe"
   ],
   "license": "ISC",
-  "main": "./dist/dotinto.js",
+  "main": "./dist/dotinto.cjs",
+  "module": "./dist/dotinto.mjs",
   "name": "dot-into",
   "repository": {
     "type": "git",
     "url": "https://github.com/agj/dot-into.git"
   },
-  "types": "./dist/dotinto.d.ts",
-  "version": "2.0.0"
+  "types": "./dist/dotinto.d.cts",
+  "version": "3.0.0"
 }

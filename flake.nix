@@ -14,10 +14,12 @@
         pkgs = import nixpkgs {system = system;};
       in {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            bun
-            entr
-            nodePackages.pnpm
+          buildInputs = [
+            pkgs.just
+            pkgs.nodejs-slim_24
+            pkgs.prettier
+            pkgs.typescript-language-server
+            pkgs.yarn-berry
           ];
         };
       }

@@ -3,6 +3,26 @@
 Details on all dot-into releases. The format is roughly based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [3.0.0] (2026-04-01)
+
+[3.0.0]: https://github.com/agj/dot-into/tree/v3.0.0
+
+### Added
+
+- Package now provides both ESM and CJS module formats.
+- Type tests.
+
+### Fixed
+
+- TypeScript would incorrectly infer the argument and return type of a function
+  passed to `.into()` if said function uses generic types. This has been largely
+  fixed; however, when the function has multiple signature definitions, the
+  inference still seems to get messed up.
+
+### Removed
+
+- Now targeting ES2015 syntax, so no more support for ES5.
+
 ## [2.0.0] (2024-03-31)
 
 [2.0.0]: https://github.com/agj/dot-into/tree/v2.0.0
@@ -18,16 +38,16 @@ Simplified for the base use-case, and made it TypeScript-ready.
 - Importing `dot-into` now instantly causes the side-effect of installing the
   `into` method on `Object.prototype`. In sum, this:
 
-    ```js
-    import dotInto from "dot-into";
-    dotInto.install();
-    ```
+  ```js
+  import dotInto from "dot-into";
+  dotInto.install();
+  ```
 
   Becomes this:
 
-    ```js
-    import "dot-into";
-    ```
+  ```js
+  import "dot-into";
+  ```
 
 ### Removed
 

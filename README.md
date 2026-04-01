@@ -1,22 +1,33 @@
 # dot-into ↪️
 
-A small **JavaScript** and **TypeScript** utility that allows you to convert this type of code
+A small **JavaScript** and **TypeScript** utility that allows you to convert
+nested code like this
 
 ```js
 third(second(first(a)), b);
 ```
 
-into this
+into code that flows left-to-right or top-to-bottom, like this
 
 ```js
 first(a).into(second).into(third, b);
 ```
 
-You might be familiar with this style of programming from terminal shells (Bash and friends) which use the `|` (pipe) operator, or from programming languages that implement function piping, commonly through the `|>` operator. It allows you to avoid nesting function calls, maintaining left-to-right order.
+You might be familiar with this style of programming from terminal shells (Bash
+and friends) which use the `|` (pipe) operator, or from many (mostly functional)
+programming languages that implement function piping, commonly through the
+`|>` operator. It allows you to avoid nesting function calls, maintaining
+left-to-right order.
 
-⚠️ **DO NOT use in library code!** dot-into modifies the `Object` prototype with an `into` method, which is part of the global state! This ensures that most anything will have this method available, but it will affect your entire project.
+⚠️ **DO NOT use in library code!** dot-into modifies the `Object` prototype
+with an `into` method, which is part of the global state! This ensures that
+most anything will have this method available, but it will affect your entire
+project.
 
-This package was originally prompted by [Reg Brathwaite's 2008 blog post][2008blog]. He also implemented it in his [_Katy_][katy] library as the `T` method, but mine was a more basic and focused approach with no added magic. And now it comes with types!
+This package was originally prompted by [Reg Brathwaite's 2008 blog
+post][2008blog]. He also implemented it in his [_Katy_][katy] library as the `T`
+method, but mine was a more basic and focused approach with no added magic. And
+now it comes with types!
 
 [2008blog]: http://weblog.raganwald.com/2008/01/no-detail-too-small.html
 [katy]: https://github.com/raganwald/Katy
@@ -24,7 +35,8 @@ This package was originally prompted by [Reg Brathwaite's 2008 blog post][2008bl
 
 ## Fun ways to use
 
-Some of these examples use [Ramda][ramda], which is a library that makes it easy to do these kinds of sequential transformations of data!
+Some of these examples use [Ramda][ramda], which is a library that makes it easy
+to do these kinds of sequential transformations of data!
 
 ```js
 import "dot-into";
@@ -73,10 +85,8 @@ npm install --save dot-into
 
 Remember to `import "dot-into"` from the main file of your project!
 
-## License
+## No AI slop policy
 
-Copyright (c) 2017-2024, agj
-
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+This project does not use LLMs or any form of generative AI for the authoring of
+its code or any of its related content, and will not accept such contributions,
+be they in whole or in part made using such technologies.

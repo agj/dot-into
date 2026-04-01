@@ -1,15 +1,6 @@
+//#region src/dotinto.d.ts
 type Fn<This, Args extends unknown[], Ret> = (p0: This, ...rest: Args) => Ret;
-
-function into<This, Args extends unknown[], Ret>(
-  this: This,
-  fn: Fn<This, Args, Ret>,
-  ...args: Args
-): Ret {
-  return fn(this, ...args);
-}
-
-// Install globally.
-
+declare function into<This, Args extends unknown[], Ret>(this: This, fn: Fn<This, Args, Ret>, ...args: Args): Ret;
 declare global {
   interface Object {
     /**
@@ -25,10 +16,4 @@ declare global {
     into: typeof into;
   }
 }
-
-Object.defineProperty(Object.prototype, "into", {
-  value: into,
-  enumerable: false,
-  configurable: false,
-  writable: false,
-});
+export {}
