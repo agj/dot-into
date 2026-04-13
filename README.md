@@ -87,6 +87,13 @@ Remember to `import "dot-into"` from the main file of your project!
 
 ## No AI slop policy
 
-This project does not use LLMs or any form of generative AI for the authoring of
-its code or any of its related content, and will not accept such contributions,
-be they in whole or in part made using such technologies.
+This project does not use LLMs or any form of generative AI, be it in whole or
+in part, for the authoring of its code or any of its related content, and will
+not accept such contributions. This policy does not necessarily reflect on the
+dependencies and tools used herein.
+
+Please read the [Open Slopware “Why not LLMs?”][why-not-llms] rationale to
+learn about the multitude of externalities that plague the use and development
+of LLMs.
+
+[why-not-llms]: https://codeberg.org/small-hack/open-slopware/src/commit/69475267031ccf609517dfa254f1916cb435e424/README.md#why-not-llms
